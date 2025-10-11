@@ -1,112 +1,58 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
+import { router } from 'expo-router';
+import { PixelButton } from '@/components/PixelButton';
+import { PixelProgressBar } from '@/components/PixelProgressBar';
+import { mockData } from '@/data/mockData';
 
-import { Collapsible } from '@/components/ui/collapsible';
-import { ExternalLink } from '@/components/external-link';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Fonts } from '@/constants/theme';
+export default function ModulesScreen() {
+  const { courses } = mockData;
 
-export default function TabTwoScreen() {
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case 'easy': return 'bg-green-600';
+      case 'medium': return 'bg-yellow-600';
+      case 'hard': return 'bg-red-600';
+      default: return 'bg-gray-600';
+    }
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText
-          type="title"
-          style={{
-            fontFamily: Fonts.rounded,
-          }}>
-          Explore
-        </ThemedText>
-      </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image
-          source={require('@/assets/images/react-logo.png')}
-          style={{ width: 100, height: 100, alignSelf: 'center' }}
-        />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful{' '}
-          <ThemedText type="defaultSemiBold" style={{ fontFamily: Fonts.mono }}>
-            react-native-reanimated
-          </ThemedText>{' '}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
+    <ScrollView className="flex-1 bg-black">
+      <View className="p-4">
+        <Text className="text-white font-bold text-2xl mb-4">Courses</Text>
+        
+        {courses.map((course) => (
+          <View key={course.id} className="bg-emerald-600 border-2 border-emerald-900 p-4 mb-4">
+            <View className="flex-row justify-between items-start mb-2">
+              <Text className="text-white font-bold text-lg flex-1">{course.title}</Text>
+              <View className="flex-row items-center">
+                <View className={`px-2 py-1 border border-emerald-900 mr-2 ${getDifficultyColor(course.difficulty)}`}>
+                  <Text className="text-white font-bold text-xs uppercase">{course.difficulty}</Text>
+                </View>
+                {course.locked && (
+                  <View className="w-6 h-6 bg-gray-600 border border-gray-800">
+                    <Text className="text-white text-center text-xs">🔒</Text>
+                  </View>
+                )}
+              </View>
+            </View>
+            
+            <Text className="text-emerald-200 text-sm mb-2">{course.description}</Text>
+            <Text className="text-emerald-300 text-xs mb-3">⏱️ {course.estimatedTime}</Text>
+            
+            <View className="mb-3">
+              <Text className="text-emerald-200 mb-1">Progress: {course.progress}%</Text>
+              <PixelProgressBar progress={course.progress} />
+            </View>
+            
+            <PixelButton 
+              title={course.locked ? "Locked" : course.progress > 0 ? "Continue" : "Start"}
+              onPress={() => course.locked ? null : router.push('/quizzes')}
+              variant={course.locked ? 'secondary' : 'primary'}
+            />
+          </View>
+        ))}
+      </View>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-});

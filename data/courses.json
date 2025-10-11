@@ -1,0 +1,73 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "AI Fundamentals",
+      "difficulty": "easy",
+      "locked": false,
+      "progress": 75,
+      "description": "Learn the basics of artificial intelligence and machine learning",
+      "estimatedTime": "2 hours",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "What is AI?",
+          "content": "Artificial Intelligence (AI) refers to computer systems that can perform tasks typically requiring human intelligence...",
+          "completed": true
+        },
+        {
+          "id": 2,
+          "title": "Types of AI",
+          "content": "There are three main types of AI: Narrow AI, General AI, and Super AI...",
+          "completed": true
+        },
+        {
+          "id": 3,
+          "title": "Machine Learning Basics",
+          "content": "Machine Learning is a subset of AI that enables computers to learn without explicit programming...",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Gamification Theory",
+      "difficulty": "medium",
+      "locked": false,
+      "progress": 40,
+      "description": "Understand how game mechanics can enhance learning experiences",
+      "estimatedTime": "3 hours",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Game Mechanics",
+          "content": "Points, badges, leaderboards, and progress bars are core game mechanics...",
+          "completed": true
+        },
+        {
+          "id": 2,
+          "title": "Motivation Psychology",
+          "content": "Understanding intrinsic vs extrinsic motivation in learning contexts...",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Reinforcement Learning",
+      "difficulty": "hard",
+      "locked": true,
+      "progress": 0,
+      "description": "Advanced AI technique where agents learn through trial and error",
+      "estimatedTime": "5 hours",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Q-Learning",
+          "content": "Q-Learning is a model-free reinforcement learning algorithm...",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}

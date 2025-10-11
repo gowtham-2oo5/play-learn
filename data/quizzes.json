@@ -1,0 +1,58 @@
+{
+  "quizzes": [
+    {
+      "id": 1,
+      "title": "AI Fundamentals Quiz",
+      "courseId": 1,
+      "difficulty": "easy",
+      "questions": 5,
+      "timeLimit": 300,
+      "completed": true,
+      "score": 85,
+      "questions_data": [
+        {
+          "id": 1,
+          "question": "What does AI stand for?",
+          "options": ["Artificial Intelligence", "Automated Intelligence", "Advanced Intelligence", "Applied Intelligence"],
+          "correct": 0
+        },
+        {
+          "id": 2,
+          "question": "Which is a type of machine learning?",
+          "options": ["Supervised Learning", "Creative Learning", "Manual Learning", "Static Learning"],
+          "correct": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Gamification Basics Quiz",
+      "courseId": 2,
+      "difficulty": "medium",
+      "questions": 8,
+      "timeLimit": 480,
+      "completed": false,
+      "score": null,
+      "questions_data": [
+        {
+          "id": 1,
+          "question": "What is the primary goal of gamification?",
+          "options": ["Entertainment", "Engagement", "Competition", "Rewards"],
+          "correct": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Advanced RL Quiz",
+      "courseId": 3,
+      "difficulty": "hard",
+      "questions": 12,
+      "timeLimit": 720,
+      "completed": false,
+      "score": null,
+      "locked": true,
+      "questions_data": []
+    }
+  ]
+}
