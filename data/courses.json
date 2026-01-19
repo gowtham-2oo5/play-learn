@@ -8,6 +8,7 @@
       "progress": 75,
       "description": "Learn the basics of artificial intelligence and machine learning",
       "estimatedTime": "2 hours",
+      "durationMinutes": 120,
       "lessons": [
         {
           "id": 1,
@@ -37,6 +38,7 @@
       "progress": 40,
       "description": "Understand how game mechanics can enhance learning experiences",
       "estimatedTime": "3 hours",
+      "durationMinutes": 180,
       "lessons": [
         {
           "id": 1,
@@ -60,11 +62,126 @@
       "progress": 0,
       "description": "Advanced AI technique where agents learn through trial and error",
       "estimatedTime": "5 hours",
+      "durationMinutes": 300,
       "lessons": [
         {
           "id": 1,
           "title": "Q-Learning",
           "content": "Q-Learning is a model-free reinforcement learning algorithm...",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Intro to Data Visualization",
+      "difficulty": "easy",
+      "locked": false,
+      "progress": 10,
+      "description": "Create compelling charts and stories with data.",
+      "estimatedTime": "45 min",
+      "durationMinutes": 45,
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Charts 101",
+          "content": "Basic charts and when to use them",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Python for ML Engineers",
+      "difficulty": "medium",
+      "locked": false,
+      "progress": 20,
+      "description": "Practical Python tools and libraries for machine learning.",
+      "estimatedTime": "4 hours",
+      "durationMinutes": 240,
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Python Basics",
+          "content": "Syntax and data structures",
+          "completed": true
+        },
+        {
+          "id": 2,
+          "title": "NumPy & Pandas",
+          "content": "Data manipulation basics",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Effective Note-Taking",
+      "difficulty": "easy",
+      "locked": false,
+      "progress": 0,
+      "description": "Techniques to capture and retain what you learn.",
+      "estimatedTime": "30 min",
+      "durationMinutes": 30,
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Note Methods",
+          "content": "Cornell, map, and Zettelkasten",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Model Evaluation & Metrics",
+      "difficulty": "hard",
+      "locked": false,
+      "progress": 5,
+      "description": "Understand precision, recall, and AUC for model evaluation.",
+      "estimatedTime": "90 min",
+      "durationMinutes": 90,
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Metrics Overview",
+          "content": "Common evaluation metrics",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Quick SQL for Data",
+      "difficulty": "medium",
+      "locked": false,
+      "progress": 0,
+      "description": "Run quick queries to prepare data for analysis.",
+      "estimatedTime": "50 min",
+      "durationMinutes": 50,
+      "lessons": [
+        {
+          "id": 1,
+          "title": "SELECT & JOIN",
+          "content": "Core SQL commands",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Product Thinking for Builders",
+      "difficulty": "medium",
+      "locked": true,
+      "progress": 0,
+      "description": "Learn how to frame problems and build useful products.",
+      "estimatedTime": "75 min",
+      "durationMinutes": 75,
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Problem Framing",
+          "content": "How to scope useful experiments",
           "completed": false
         }
       ]
